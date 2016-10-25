@@ -60,7 +60,9 @@ export default class LazyLoad extends Component {
     if (this.lazyLoadHandler.cancel) {
       this.lazyLoadHandler.cancel();
     }
-    this.raf.cancel();
+    if(typeof this.raf !== 'undefined'){
+      this.raf.cancel();
+    }
     this.detachListeners();
   }
 
